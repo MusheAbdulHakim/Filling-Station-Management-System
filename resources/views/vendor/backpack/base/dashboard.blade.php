@@ -24,56 +24,9 @@
 	// need them to show information from the DB.
 	// 
 	// But you do whatever you think it's best. Who am I, your mom?
-	$productCount = App\Models\Product::count();
 	$userCount = App\User::count();
-	$articleCount = \Backpack\NewsCRUD\app\Models\Article::count();
-	$lastArticle = \Backpack\NewsCRUD\app\Models\Article::orderBy('date', 'DESC')->first();
-	$lastArticleDaysAgo = \Carbon\Carbon::parse($lastArticle->date)->diffInDays(\Carbon\Carbon::today());
- 
- 	// notice we use Widget::add() to add widgets to a certain group
-	Widget::add()->to('before_content')->type('div')->class('row')->content([
-		// notice we use Widget::make() to add widgets as content (not in a group)
-		Widget::make()
-			->type('progress')
-			->class('card border-0 text-white bg-primary')
-			->progressClass('progress-bar')
-			->value($userCount)
-			->description('Registered users.')
-			->progress(100*(int)$userCount/1000)
-			->hint(1000-$userCount.' more until next milestone.'),
-		// alternatively, to use widgets as content, we can use the same add() method,
-		// but we need to use onlyHere() or remove() at the end
-		Widget::add()
-		    ->type('progress')
-		    ->class('card border-0 text-white bg-success')
-		    ->progressClass('progress-bar')
-		    ->value($articleCount)
-		    ->description('Articles.')
-		    ->progress(80)
-		    ->hint('Great! Don\'t stop.')
-		    ->onlyHere(), 
-		// alternatively, you can just push the widget to a "hidden" group
-		Widget::make()
-			->group('hidden')
-		    ->type('progress')
-		    ->class('card border-0 text-white bg-warning')
-		    ->value($lastArticleDaysAgo.' days')
-		    ->progressClass('progress-bar')
-		    ->description('Since last article.')
-		    ->progress(30)
-		    ->hint('Post an article every 3-4 days.'),
-		// both Widget::make() and Widget::add() accept an array as a parameter
-		// if you prefer defining your widgets as arrays
-	    Widget::make([
-			'type' => 'progress',
-			'class'=> 'card border-0 text-white bg-dark',
-			'progressClass' => 'progress-bar',
-			'value' => $productCount,
-			'description' => 'Products.',
-			'progress' => (int)$productCount/75*100,
-			'hint' => $productCount>75?'Try to stay under 75 products.':'Good. Good.',
-		]),
-	]);
+	
+ 	
 
     $widgets['after_content'][] = [
 	  'type' => 'div',
