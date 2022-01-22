@@ -1,0 +1,77 @@
+{
+    "name": "backpack/demo",
+    "description": "A Laravel + Backpack installation to show off most features.",
+    "keywords": ["backpack", "laravel", "backpack for laravel", "admin panel", "crud"],
+    "license": "proprietary",
+    "type": "project",
+    "require": {
+        "php": ">=7.3",
+        "laravel/framework": "^8.0",
+        "fideloper/proxy": "^4.0",
+        "backpack/crud": "^4.1.22",
+        "backpack/logmanager": "^4.0",
+        "backpack/settings": "^3.0",
+        "backpack/permissionmanager": "^6.0",
+        "backpack/backupmanager": "^3.0",
+        "spatie/laravel-translatable": "^4.0",
+        "laravel/tinker": "^2.1",
+        "facade/ignition": "^2.3.6",
+        "intervention/image": "^2.3",
+        "backpack/revise-operation": "^1.0",
+        "backpack/filemanager": "^1.0",
+        "consoletvs/charts": "6.*",
+        "laravel/legacy-factories": "^1.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "~1.4",
+        "mockery/mockery": "1.4.*",
+        "phpunit/phpunit" : "^9.0||^8.5||^7.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "^5.0.2|3.0.*|2.8.*",
+        "laracasts/generators": "^2.0",
+        "backpack/generators": "^3.0",
+        "itsgoingd/clockwork": "^5.0",
+        "barryvdh/laravel-debugbar": "^3.2"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan vendor:publish --provider=\"Backpack\\CRUD\\BackpackServiceProvider\" --tag=public --force"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover"
+        ],
+        "test": "vendor/bin/phpunit --testdox"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "platform": {
+            "php": "7.4.0"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

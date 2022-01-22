@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+/public/storage
+/storage/backups
+Homestead.yaml
+Homestead.json
+.env
+.idea
+.DS_Store
+.packages
+.quarantine
+.tmb
