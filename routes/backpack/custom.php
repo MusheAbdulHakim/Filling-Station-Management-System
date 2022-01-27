@@ -38,4 +38,15 @@ Route::group([
             });
         }
     }
+    Route::crud('unit', 'UnitCrudController');
+    Route::crud('product', 'ProductCrudController');
+    Route::crud('supplier', 'SupplierCrudController');
+    Route::crud('purchase', 'PurchaseCrudController');
+    Route::crud('expense-category', 'ExpenseCategoryCrudController');
+    Route::crud('expense', 'ExpenseCrudController');
+    Route::crud('designation', 'DesignationCrudController');
+    Route::crud('employee', 'EmployeeCrudController');
+    Route::crud('attendance', 'AttendanceCrudController');
+    Route::get('charts/latest-purchase', 'Charts\LatestPurchaseChartController@response')->name('charts.latest-purchase.index');
+    Route::crud('sale', 'SaleCrudController');
 }); // this should be the absolute last line of this file
