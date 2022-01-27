@@ -16,10 +16,10 @@ class Product extends Model
     */
 
     protected $table = 'products';
-    // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    protected $primaryKey = 'id';
+    public $timestamps = true;
     protected $guarded = ['id'];
-    protected $fillable = ['name','unit_id','cost_price','sale_price','image'];
+    protected $fillable = ['name','unit_id','image'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,6 +28,13 @@ class Product extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function setImageAttribute($value)
+    {
+        $attribute_name = "image";
+        $disk = "public";
+        $destination_path = "/uploads";       
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    }
 
     /*
     |--------------------------------------------------------------------------

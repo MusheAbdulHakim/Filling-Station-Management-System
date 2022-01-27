@@ -28,8 +28,6 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:255',
             'unit_id' => 'required',
-            'cost_price' => 'required',
-            'sale_price' => 'required',
             'image' => 'nullable|file|image|mimes: jpg,png,jpeg,gif'
         ];
     }
@@ -54,7 +52,7 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            
         ];
     }
 }

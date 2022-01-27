@@ -60,10 +60,7 @@ class ProductCrudController extends CrudController
                     return backpack_url('unit/'.$related_key.'/show');
                 },
             ]);
-        CRUD::column('cost_price')
-            ->type('decimal');
-        CRUD::column('sale_price')
-            ->type('decimal');
+        
     }
 
     /**
@@ -76,7 +73,6 @@ class ProductCrudController extends CrudController
     {
         CRUD::setValidation(ProductRequest::class);
 
-        // CRUD::setFromDb(); // fields
         CRUD::addField([   
             'name'  => 'name',
             'label' => 'Product Name',
@@ -88,49 +84,31 @@ class ProductCrudController extends CrudController
             'model' =>  'app\Models\Unit',
             'name'      => 'unit_id', // the db column for the foreign key
             'entity'    => 'unit', // the method that defines the relationship in your Model
-            'attribute' => 'name', // foreign key attribute that is shown to user
-            // 'wrapperAttributes' => [
-            //     'class' => 'form-group col-md-6'
-            //   ], // extra HTML attributes for the field wrapper - mostly for resizing fields
+            'attribute' => 'name', 
         ]);
         
-        CRUD::addField([   
-            'name'  => 'cost_price',
-            'label' => 'Cost Price',
-            'type'  => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            // 'prefix' => '$',
-            'suffix' => '.00',
-            // 'wrapperAttributes' => [
-            //    'class' => 'form-group col-md-6'
-            //  ], // extra HTML attributes for the field wrapper - mostly for resizing fields
+        // CRUD::addField([   
+        //     'name'  => 'cost_price',
+        //     'label' => 'Cost Price',
+        //     'type'  => 'number',
+        //     'suffix' => '.00',
+        //     ]);
+        // CRUD::addField([   
+        //     'name'  => 'sale_price',
+        //     'label' => 'Sale Price',
+        //     'type'  => 'number',
+        //     'suffix' => '.00',
+            
+        // ]);
+        CRUD::addField([
+            'name' => 'upload',
+            'type' => 'upload',
+            'label' => 'Upload Image',
+            'upload' => true,
+            'disk' => 'uploads'
         ]);
-        CRUD::addField([   
-            'name'  => 'sale_price',
-            'label' => 'Sale Price',
-            'type'  => 'number',
-            // optionals
-            // 'attributes' => ["step" => "any"], // allow decimals
-            // 'prefix' => '$',
-            'suffix' => '.00',
-            // 'wrapperAttributes' => [
-            //    'class' => 'form-group col-md-6'
-            //  ], // extra HTML attributes for the field wrapper - mostly for resizing fields
-        ]);
-        CRUD::field('image')
-                ->type('image')
-                ->label('Product Image')
-                ->upload(true)
-                ->crop(true)
-                ->aspect_ratio(1)
-                ->src(null);
+        
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
     }
 
     /**
