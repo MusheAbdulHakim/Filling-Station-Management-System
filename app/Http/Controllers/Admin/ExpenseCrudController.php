@@ -53,7 +53,7 @@ class ExpenseCrudController extends CrudController
             ->model("app\Models\ExpenseCategory")
             ->wrapper([
                 'href' => function ($crud, $column, $entry, $related_key) {
-                    return backpack_url('unit/'.$related_key.'/show');
+                    return backpack_url('expense-category/'.$related_key.'/show');
                 },
             ]);
         CRUD::column('cost');

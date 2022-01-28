@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Sale;
+use App\Models\Product;
 use App\Http\Requests\SaleRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
@@ -94,6 +96,16 @@ class SaleCrudController extends CrudController
             'name'  => 'final_quantity',
             'label' => 'Final Quantity',
             'type'  => 'number',
+        ]);
+    }
+
+    public function store(SaleRequest $request){
+        $initial_quantity = Product::findOrFail($request->product_id)->purchase->quantity;
+        
+        Sale::create([
+            'product_id' => $request->product_id,
+            'initial_quantity' => $request->initial_quantity,
+            'final_quantity' => $request->final_quantity,
         ]);
     }
 

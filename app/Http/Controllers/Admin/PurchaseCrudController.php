@@ -63,7 +63,7 @@ class PurchaseCrudController extends CrudController
             ->model("app\Models\Supplier")
             ->wrapper([
                 'href' => function ($crud, $column, $entry, $related_key) {
-                    return backpack_url('unit/'.$related_key.'/show');
+                    return backpack_url('supplier/'.$related_key.'/show');
                 },
             ]);
         CRUD::column('quantity');

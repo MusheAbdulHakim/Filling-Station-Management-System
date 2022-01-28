@@ -48,8 +48,19 @@ class ProductCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
         CRUD::column('name');
-        CRUD::column('image')
-            ->type('image');
+        CRUD::column('quantity')
+            ->type('number');
+            CRUD::column('quantity')
+            ->type('select')
+            ->entity('purchase')
+            ->attribute('quantity')
+            ->model("app\Models\Purchase")
+            ->wrapper([
+                'href' => function ($crud, $column, $entry, $related_key) {
+                    return backpack_url('purchase/'.$related_key.'/show');
+                },
+        ]);
+        
         CRUD::column('unit_id')
             ->type('select')
             ->entity('unit')
@@ -59,7 +70,7 @@ class ProductCrudController extends CrudController
                 'href' => function ($crud, $column, $entry, $related_key) {
                     return backpack_url('unit/'.$related_key.'/show');
                 },
-            ]);
+        ]);
         
     }
 

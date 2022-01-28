@@ -53,7 +53,7 @@ class EmployeeCrudController extends CrudController
             ->model("app\Models\Designation")
             ->wrapper([
                 'href' => function ($crud, $column, $entry, $related_key) {
-                    return backpack_url('unit/'.$related_key.'/show');
+                    return backpack_url('designation/'.$related_key.'/show');
                 },
             ]);
         CRUD::column('email')->type('email');
