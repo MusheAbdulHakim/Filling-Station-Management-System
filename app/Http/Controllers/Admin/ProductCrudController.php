@@ -19,6 +19,7 @@ class ProductCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -49,8 +50,7 @@ class ProductCrudController extends CrudController
          */
         CRUD::column('name');
         CRUD::column('quantity')
-            ->type('number');
-            CRUD::column('quantity')
+            ->type('number')
             ->type('select')
             ->entity('purchase')
             ->attribute('quantity')
