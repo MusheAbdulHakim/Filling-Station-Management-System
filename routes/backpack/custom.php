@@ -48,4 +48,6 @@ Route::group([
     Route::crud('employee', 'EmployeeCrudController');
     Route::get('charts/latest-purchase', 'Charts\LatestPurchaseChartController@response')->name('charts.latest-purchase.index');
     Route::crud('sale', 'SaleCrudController');
+    Route::crud('check-in', 'CheckInCrudController');
+    Route::crud('check-out', 'CheckOutCrudController');
 }); // this should be the absolute last line of this file
