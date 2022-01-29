@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Sale;
 use App\Models\Product;
 use App\Http\Requests\SaleRequest;
+use App\Models\Purchase;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -17,7 +18,6 @@ class SaleCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
@@ -40,8 +40,7 @@ class SaleCrudController extends CrudController
      * @return void
      */
     protected function setupListOperation()
-    {
-        
+    {       
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -55,11 +54,11 @@ class SaleCrudController extends CrudController
             ->model("app\Models\Product")
             ->wrapper([
                 'href' => function ($crud, $column, $entry, $related_key) {
-                    return backpack_url('unit/'.$related_key.'/show');
+                    return backpack_url('product/'.$related_key.'/show');
                 },
         ]);
-        CRUD::column('initial_quantity');
-        CRUD::column('final_quantity');
+        CRUD::column('quantity');
+        CRUD::column('cash');
     }
 
    
@@ -87,26 +86,35 @@ class SaleCrudController extends CrudController
             'entity'    => 'product', // the method that defines the relationship in your Model
             'attribute' => 'name', // foreign key attribute that is shown to user
         ]);
+        
         CRUD::addField([  
-            'name'  => 'initial_quantity',
-            'label' => 'Initial Quantity',
-            'type'  => 'number',
-        ]);
-        CRUD::addField([  
-            'name'  => 'final_quantity',
-            'label' => 'Final Quantity',
+            'name'  => 'quantity',
+            'label' => 'Quantity',
             'type'  => 'number',
         ]);
     }
 
     public function store(SaleRequest $request){
-        $initial_quantity = Product::findOrFail($request->product_id)->purchase->quantity;
+        $purchase = Product::findOrFail($request->product_id)->purchase[0];
+        $sale_unit = Product::findOrFail($request->product_id)->unit['value'];
+        $purchase_quantity = $purchase['quantity'];
+        $new_quantity = $purchase_quantity - $request->quantity;
+        $cash = $request->quantity * $sale_unit;
+        if(($purchase_quantity >= 0)){
+            $purchase->update([
+                'product_id' => $request->product_id,
+                'quantity' => $new_quantity,
+            ]); 
+            Sale::create([
+                'product_id' => $request->product_id,
+                'quantity' => $request->quantity,
+                'cash' => $cash,
+            ]);   
+            return redirect()->route('sale.index');     
+        }else{
+            return redirect()->route('sale.index')->withErrors(['error','product quantity is low.']);
+        }
         
-        Sale::create([
-            'product_id' => $request->product_id,
-            'initial_quantity' => $request->initial_quantity,
-            'final_quantity' => $request->final_quantity,
-        ]);
     }
 
     /**
