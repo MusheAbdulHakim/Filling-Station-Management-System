@@ -19,7 +19,7 @@ class Sale extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['product_id','initial_quantity','final_quantity'];
+    protected $fillable = ['product_id','quantity','cash'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -39,7 +39,9 @@ class Sale extends Model
         return $this->belongsTo(Product::class);
     }
 
-    
+    public function purchase(){
+        return $this->hasManyThrough(Purchase::class,Product::class);
+    }
 
     /*
     |--------------------------------------------------------------------------
