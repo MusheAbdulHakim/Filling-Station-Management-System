@@ -15,7 +15,9 @@
   <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> HRM</a>
   <ul class="nav-dropdown-items">
     <li class='nav-item'><a class='nav-link' href='{{ backpack_url('designation') }}'><i class='nav-icon la la-question'></i> Designations</a></li>
-    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('employee') }}'><i class='nav-icon la la-user'></i> Employees</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('employee') }}'><i class='nav-icon la la-question'></i> Employees</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('check-in') }}'><i class='nav-icon la la-question'></i> Check ins</a></li>
+    <li class='nav-item'><a class='nav-link' href='{{ backpack_url('check-out') }}'><i class='nav-icon la la-question'></i> Check outs</a></li>
   </ul>
 </li>
 
