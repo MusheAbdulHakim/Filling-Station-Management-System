@@ -27,8 +27,7 @@ class SaleRequest extends FormRequest
     {
         return [
             'product_id' => 'required',
-            'initial_quantity' => 'required',
-            'final_quantity' => 'required',
+            'quantity' => 'required',
         ];
     }
 
