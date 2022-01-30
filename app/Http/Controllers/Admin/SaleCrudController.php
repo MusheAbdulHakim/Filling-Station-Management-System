@@ -8,6 +8,7 @@ use App\Http\Requests\SaleRequest;
 use App\Models\Purchase;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Prologue\Alerts\Facades\Alert;
 
 /**
  * Class SaleCrudController
@@ -59,6 +60,7 @@ class SaleCrudController extends CrudController
         ]);
         CRUD::column('quantity');
         CRUD::column('cash');
+        CRUD::addColumn(['name' => 'created_at', 'type' => 'date']); 
     }
 
    
@@ -100,20 +102,25 @@ class SaleCrudController extends CrudController
         $purchase_quantity = $purchase['quantity'];
         $new_quantity = $purchase_quantity - $request->quantity;
         $cash = $request->quantity * $sale_unit;
-        if(($purchase_quantity >= 0)){
-            $purchase->update([
-                'product_id' => $request->product_id,
-                'quantity' => $new_quantity,
-            ]); 
-            Sale::create([
-                'product_id' => $request->product_id,
-                'quantity' => $request->quantity,
-                'cash' => $cash,
-            ]);   
-            return redirect()->route('sale.index');     
+        if(($purchase_quantity > 0)){
+            if (($request->quantity < $purchase_quantity) && ($request->quantity > 0)){
+                $purchase->update([
+                    'product_id' => $request->product_id,
+                    'quantity' => $new_quantity,
+                ]); 
+                Sale::create([
+                    'product_id' => $request->product_id,
+                    'quantity' => $request->quantity,
+                    'cash' => $cash,
+                ]);   
+                Alert::success('sales added successfully')->flash();
+            }  
         }else{
-            return redirect()->route('sale.index')->withErrors(['error','product quantity is low.']);
+            Alert::error('product quantity is low.')->flash();
         }
+
+        $this->crud->setSaveAction();
+            return $this->crud->performSaveAction();
         
     }
 
