@@ -20,8 +20,8 @@ use Illuminate\Support\Str;
  */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name'           => $faker->name,
-        'email'          => $faker->unique()->safeEmail,
+        'name'           => $faker->name(),
+        'email'          => $faker->unique()->safeEmail(),
         'password'       => bcrypt(Str::random(10)),
         'remember_token' => Str::random(10),
         'created_at'     => Carbon::now()->subDays(rand(0, 7)),
