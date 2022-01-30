@@ -27,7 +27,7 @@ class SaleRequest extends FormRequest
     {
         return [
             'product_id' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|gt:0',
         ];
     }
 
@@ -51,7 +51,8 @@ class SaleRequest extends FormRequest
     public function messages()
     {
         return [
-            'product_id.required' => 'Select atleast one product'
+            'product_id.required' => 'Select atleast one product',
+            'quantity.gt' => 'quantity cannot be less than or equal to zero'
         ];
     }
 }
