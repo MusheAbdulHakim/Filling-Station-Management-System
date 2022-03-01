@@ -9,6 +9,7 @@ use App\Models\Purchase;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 use Prologue\Alerts\Facades\Alert;
+use Pestopancake\LaravelBackpackNotifications\Notifications\DatabaseNotification;
 
 /**
  * Class SaleCrudController
@@ -117,6 +118,13 @@ class SaleCrudController extends CrudController
             }  
         }else{
             Alert::error('product quantity is low.')->flash();
+            backpack_user()->notify(new DatabaseNotification(
+                $type = 'info',
+                $message = 'Product quantity is low. Please update the quantity or make a new purchase.',
+                $messageLong = ''.rand(1, 99999), 
+                $href = backpack_url('product'), 
+                 
+            ));
         }
 
         $this->crud->setSaveAction();
