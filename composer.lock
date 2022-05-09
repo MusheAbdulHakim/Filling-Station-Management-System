@@ -8,20 +8,20 @@
     "packages": [
         {
             "name": "backpack/backupmanager",
-            "version": "v3.0.4",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/BackupManager.git",
-                "reference": "4b043e152fce342a4b187a4b52946160ecd1cb66"
+                "reference": "a461313d706ca16ed04dfdc25cb09058f9bb503b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/4b043e152fce342a4b187a4b52946160ecd1cb66",
-                "reference": "4b043e152fce342a4b187a4b52946160ecd1cb66",
+                "url": "https://api.github.com/repos/Laravel-Backpack/BackupManager/zipball/a461313d706ca16ed04dfdc25cb09058f9bb503b",
+                "reference": "a461313d706ca16ed04dfdc25cb09058f9bb503b",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.1.0|^4.2.0",
+                "backpack/crud": "^4.0|^5.0",
                 "spatie/laravel-backup": "^8.0|^7.0|^6.1"
             },
             "require-dev": {
@@ -69,9 +69,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/BackupManager/issues",
-                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.4"
+                "source": "https://github.com/Laravel-Backpack/BackupManager/tree/v3.0.9"
             },
-            "time": "2022-01-19T08:26:05+00:00"
+            "time": "2022-04-05T06:00:17+00:00"
         },
         {
             "name": "backpack/crud",
@@ -4592,12 +4592,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Spatie\\Backup\\": "src"
-                },
                 "files": [
                     "src/Helpers/functions.php"
-                ]
+                ],
+                "psr-4": {
+                    "Spatie\\Backup\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
