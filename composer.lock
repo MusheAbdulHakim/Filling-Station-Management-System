@@ -369,20 +369,20 @@
         },
         {
             "name": "backpack/revise-operation",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/revise-operation.git",
-                "reference": "85b540217c092fd79f98ce802dcd843a2f6afb9b"
+                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/85b540217c092fd79f98ce802dcd843a2f6afb9b",
-                "reference": "85b540217c092fd79f98ce802dcd843a2f6afb9b",
+                "url": "https://api.github.com/repos/Laravel-Backpack/revise-operation/zipball/eb0401021fc784e35a948d5a56040279b82c4d68",
+                "reference": "eb0401021fc784e35a948d5a56040279b82c4d68",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.0.0|^4.1.0|^4.2.0",
+                "backpack/crud": "^4.0|^5.0",
                 "venturecraft/revisionable": "1.*"
             },
             "require-dev": {
@@ -433,9 +433,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/revise-operation/issues",
-                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.8"
+                "source": "https://github.com/Laravel-Backpack/revise-operation/tree/1.0.10"
             },
-            "time": "2022-01-19T18:14:19+00:00"
+            "time": "2022-02-15T10:28:11+00:00"
         },
         {
             "name": "backpack/settings",
@@ -7269,12 +7269,12 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
                 "psr-0": {
                     "Venturecraft\\Revisionable": "src/"
-                }
+                },
+                "classmap": [
+                    "src/migrations"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
