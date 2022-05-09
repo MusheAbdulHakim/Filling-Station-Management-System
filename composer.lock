@@ -168,20 +168,20 @@
         },
         {
             "name": "backpack/filemanager",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/FileManager.git",
-                "reference": "e2e0fe60a6e7805b90ae4ce87c5738b80e4edc65"
+                "reference": "f3f5386cd223de964bd6644860437edfe2e580bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/e2e0fe60a6e7805b90ae4ce87c5738b80e4edc65",
-                "reference": "e2e0fe60a6e7805b90ae4ce87c5738b80e4edc65",
+                "url": "https://api.github.com/repos/Laravel-Backpack/FileManager/zipball/f3f5386cd223de964bd6644860437edfe2e580bd",
+                "reference": "f3f5386cd223de964bd6644860437edfe2e580bd",
                 "shasum": ""
             },
             "require": {
-                "backpack/crud": "^4.1.0|4.1.x-dev",
+                "backpack/crud": "^4.1|^5.0",
                 "barryvdh/laravel-elfinder": "^0.4.5"
             },
             "require-dev": {
@@ -222,9 +222,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Backpack/FileManager/issues",
-                "source": "https://github.com/Laravel-Backpack/FileManager/tree/1.1.6"
+                "source": "https://github.com/Laravel-Backpack/FileManager/tree/1.1.7"
             },
-            "time": "2021-09-20T16:16:16+00:00"
+            "time": "2022-02-04T12:17:35+00:00"
         },
         {
             "name": "backpack/logmanager",
@@ -582,12 +582,12 @@
                 }
             },
             "autoload": {
-                "classmap": [
-                    "elFinderVolumeFlysystem.php"
-                ],
                 "psr-4": {
                     "Barryvdh\\elFinderFlysystemDriver\\": "src/"
-                }
+                },
+                "classmap": [
+                    "elFinderVolumeFlysystem.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4852,16 +4852,16 @@
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.60",
+            "version": "2.1.61",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "e5ca28f04d37b98d82df92dbdd4ad7cb8ef76911"
+                "reference": "33bee2654615db62e9b722efb4fdd2a21844fbb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e5ca28f04d37b98d82df92dbdd4ad7cb8ef76911",
-                "reference": "e5ca28f04d37b98d82df92dbdd4ad7cb8ef76911",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/33bee2654615db62e9b722efb4fdd2a21844fbb2",
+                "reference": "33bee2654615db62e9b722efb4fdd2a21844fbb2",
                 "shasum": ""
             },
             "require": {
@@ -4908,7 +4908,7 @@
             "homepage": "http://elfinder.org",
             "support": {
                 "issues": "https://github.com/Studio-42/elFinder/issues",
-                "source": "https://github.com/Studio-42/elFinder/tree/2.1.60"
+                "source": "https://github.com/Studio-42/elFinder/tree/2.1.61"
             },
             "funding": [
                 {
@@ -4916,7 +4916,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-12T06:00:21+00:00"
+            "time": "2022-03-14T15:07:52+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7927,20 +7927,20 @@
         },
         {
             "name": "laracasts/generators",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laracasts/Laravel-5-Generators-Extended.git",
-                "reference": "0b8b3d300cc948217f7547502b6de5db6fbafa70"
+                "reference": "5527f50260c6d3bf50a8e62e902e3fb44e87c4d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/0b8b3d300cc948217f7547502b6de5db6fbafa70",
-                "reference": "0b8b3d300cc948217f7547502b6de5db6fbafa70",
+                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/5527f50260c6d3bf50a8e62e902e3fb44e87c4d8",
+                "reference": "5527f50260c6d3bf50a8e62e902e3fb44e87c4d8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~6.0|~7.0|~8.0"
+                "illuminate/support": "~6.0|~7.0|~8.0|~9.0"
             },
             "require-dev": {
                 "phpspec/phpspec": "~6.0"
@@ -7979,9 +7979,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laracasts/Laravel-5-Generators-Extended/issues",
-                "source": "https://github.com/laracasts/Laravel-5-Generators-Extended/tree/2.0.0"
+                "source": "https://github.com/laracasts/Laravel-5-Generators-Extended/tree/2.0.1"
             },
-            "time": "2020-09-10T13:49:13+00:00"
+            "time": "2022-02-09T14:12:17+00:00"
         },
         {
             "name": "maximebf/debugbar",
