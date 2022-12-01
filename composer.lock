@@ -7859,16 +7859,16 @@
         },
         {
             "name": "itsgoingd/clockwork",
-            "version": "v5.1.6",
+            "version": "v5.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "9df41432da1d8cb39c7fda383ddcc02231c83ff3"
+                "reference": "a790200347f0c6d07e2fca252ccb446df87520c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/9df41432da1d8cb39c7fda383ddcc02231c83ff3",
-                "reference": "9df41432da1d8cb39c7fda383ddcc02231c83ff3",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/a790200347f0c6d07e2fca252ccb446df87520c6",
+                "reference": "a790200347f0c6d07e2fca252ccb446df87520c6",
                 "shasum": ""
             },
             "require": {
@@ -7915,7 +7915,7 @@
             ],
             "support": {
                 "issues": "https://github.com/itsgoingd/clockwork/issues",
-                "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.6"
+                "source": "https://github.com/itsgoingd/clockwork/tree/v5.1.11"
             },
             "funding": [
                 {
@@ -7923,7 +7923,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-12T21:35:47+00:00"
+            "time": "2022-11-02T21:11:04+00:00"
         },
         {
             "name": "laracasts/generators",
